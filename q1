@@ -1,25 +1,43 @@
 class Order {
   int orderNumber;
-  String name;
-  DateTime endDate;
+  String orderName;
+  DateTime? endDate;
   DateTime? startDate;
-  String? studentName;
 
-  Order(this.orderNumber, this.name, this.endDate,
-      {this.startDate, this.studentName});
+  Order(this.orderNumber, this.orderName,
+        {this.startDate, this.endDate});
 
-  Order.withoutStartDate(this.orderNumber, this.name, this.endDate,
-      {this.studentName});
+  Order.withAllProperties(
+      this.orderNumber, this.orderName,
+    this.startDate, this.endDate);
 
-  void printStudentInfo() {
-    if (studentName != null) {
-      print('Student name: $studentName');
-    } else {
-      print('No student information available');
+  
+  void printOrderDetails() {
+    print('Order number: $orderNumber');
+    print('Order name: $orderName');
+    if (startDate != null) {
+      print('Start date: ${startDate.toString()}');
+    }
+    if (endDate != null) {
+      print('Expiry date: ${endDate.toString()}');
     }
   }
 
-  void printWelcome() {
-    print('Welcome to the order system!');
+  void printWelcomeMessage() {
+    print('Welcome to the Order!');
   }
+}
+
+void main() {
+  Order order1 = Order(1, 'Order 1',
+      startDate: DateTime.now(),
+      endDate: DateTime.now().add(Duration(days: 7)));
+  order1.printOrderDetails();
+  order1.printWelcomeMessage();
+
+  Order order2 = Order.withAllProperties(
+      2, 'Order 2', DateTime.now(), 
+    DateTime.now().add(Duration(days: 14)));
+  order2.printOrderDetails();
+  order2.printWelcomeMessage();
 }
