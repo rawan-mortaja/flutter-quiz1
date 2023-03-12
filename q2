@@ -1,0 +1,23 @@
+void main() {
+  double gre = 80;
+
+  switch (gre.floor()) {
+    case 90:
+      print('ممتاز');
+      break;
+    case 80:
+      print('جيد جدا');
+      break;
+    case 70:
+      print('جيد');
+      break;
+    case 60:
+      print('مقبول');
+      break;
+    case 50:
+      print('متوسط');
+      break;
+    default:
+      print('راسب');
+  }
+}
