@@ -1,0 +1,16 @@
+void main() {
+  List<int> gre = List.generate(50, (index) => index + 50);
+  List<int> counts = List.filled(10, 0);
+
+  for (int gre in gre) {
+    int index = (gre ~/ 10) - 5;
+    counts[index]++;
+  }
+
+  for (int i = 9; i >= 0; i--) {
+    if (counts[i] > 0) {
+      int gre = (i + 5) * 10;
+      print("عدد الطلاب الذين حصلوا على النتيجة $gre هم ${counts[i]} طلاب");
+    }
+  }
+}
