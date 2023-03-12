@@ -1,0 +1,25 @@
+class Order {
+  int orderNumber;
+  String name;
+  DateTime endDate;
+  DateTime? startDate;
+  String? studentName;
+
+  Order(this.orderNumber, this.name, this.endDate,
+      {this.startDate, this.studentName});
+
+  Order.withoutStartDate(this.orderNumber, this.name, this.endDate,
+      {this.studentName});
+
+  void printStudentInfo() {
+    if (studentName != null) {
+      print('Student name: $studentName');
+    } else {
+      print('No student information available');
+    }
+  }
+
+  void printWelcome() {
+    print('Welcome to the order system!');
+  }
+}
